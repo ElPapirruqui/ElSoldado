@@ -1,10 +1,10 @@
 #pragma once
-
-class IWeapon;
+#include "IWeapon.h"
 
 class Shotgun : public IWeapon {
 public:
 	Shotgun();
 	~Shotgun();
 	void Shoot();
+	std::string GetWeaponType();
 };

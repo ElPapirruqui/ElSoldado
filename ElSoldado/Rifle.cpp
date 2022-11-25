@@ -1,13 +1,18 @@
 #include<iostream>
 #include "Rifle.h"
-#include "IWeapon.h"
 
 using namespace std;
 
 Rifle::Rifle() {}
 
-Rifle::~Rifle() {}
+Rifle::~Rifle() {
+	cout << "Metralleta Destructor" << endl;
+}
 
 void Rifle::Shoot() {
-	cout << "Ratatatata!";
+	cout << "Ratatatata!\n" << endl;
+}
+
+std::string Rifle::GetWeaponType() {
+	return "Metralleta";
 }

@@ -7,21 +7,21 @@
 #include "Pistol.h"
 #include "Rifle.h"
 #include "Shotgun.h"
+#include "WeaponFactory.h"
 
 using namespace std;
 
 int main()
 {
+
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
     int Option = -1;
     int WeapOption = -1;
     std::unique_ptr<Soldier> SoldierUP = std::make_unique<Soldier>();
-    std::unique_ptr<Pistol> PitsolaUP = std::make_unique<Pistol>();
-    std::unique_ptr<Rifle> MetralletaUP = std::make_unique<Rifle>();
-    std::unique_ptr<Shotgun> EscopetaUP = std::make_unique<Shotgun>();
     Soldier* Soldier = SoldierUP.get();
-    Pistol* Pitsola = PitsolaUP.get();
-    Rifle* Metralleta = MetralletaUP.get();
-    Shotgun* Escopeta = EscopetaUP.get();
+    std::unique_ptr<WeaponFactory> WeaponFactoryUP = std::make_unique<WeaponFactory>();
+    WeaponFactory* WeaponFactory = WeaponFactoryUP.get();
     
     while (Option != 0)
     {
@@ -37,7 +37,7 @@ int main()
 
         switch (Option) {
         case 1:
-            system("CLS");
+            std::system("CLS");
             WeapOption = -1;
             while (WeapOption != 0)
             {
@@ -50,28 +50,37 @@ int main()
                 cin >> WeapOption;
 
                 if (Soldier->HasWeaponEquiped()) {
-                    system("CLS");
+                    std::system("CLS");
                     cout << "Parece que el soldado ya esta equipado con otra arma" << endl;
                 } else {
                     switch (WeapOption) {
                     case 1:
-                        Soldier->PickupWeapon(Pitsola);
-                        break;
+                        {
+                            Pistol* Pitsola = static_cast<Pistol*>(WeaponFactory->CreateWeapon(EWeaponType::Pistol));
+                            Soldier->PickupWeapon(Pitsola);
+                            break;
+                        }
                     case 2:
-                        Soldier->PickupWeapon(Metralleta);
-                        break;
+                        {
+                            Rifle* Metralleta = static_cast<Rifle*>(WeaponFactory->CreateWeapon(EWeaponType::Rifle));
+                            Soldier->PickupWeapon(Metralleta);
+                            break;
+                        }
                     case 3:
-                        Soldier->PickupWeapon(Escopeta);
-                        break;
+                        {
+                            Shotgun* Escopeta = static_cast<Shotgun*>(WeaponFactory->CreateWeapon(EWeaponType::Shotgun));
+                            Soldier->PickupWeapon(Escopeta);
+                            break;
+                        }
                     }
-                    system("CLS");
+                    std::system("CLS");
                     cout << "Arma actual: " << Soldier->InspectWeapon() << endl;
                 }
             }
-            system("CLS");
+            std::system("CLS");
             break;
         case 2:
-            system("CLS");
+            std::system("CLS");
             if (Soldier->HasWeaponEquiped()) {
                 cout << "Soltando arma: " << Soldier->InspectWeapon() << endl;
                 Soldier->DropWeapon();
@@ -81,7 +90,7 @@ int main()
             }
             break;
         case 3:
-            system("CLS");
+            std::system("CLS");
             if (Soldier->HasWeaponEquiped()) {
                 Soldier->ShootWeapon();
             } else {
@@ -89,7 +98,7 @@ int main()
             }
             break;
         case 4:
-            system("CLS");
+            std::system("CLS");
             if (Soldier->HasWeaponEquiped()) {
                 cout << "Arma actual: " << Soldier->InspectWeapon() << endl;
             }

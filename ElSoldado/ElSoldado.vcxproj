@@ -140,17 +140,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Pistol.cpp" />
     <ClCompile Include="Rifle.cpp" />
     <ClCompile Include="Shotgun.cpp" />
     <ClCompile Include="Soldier.cpp" />
+    <ClCompile Include="WeaponFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IWeapon.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Pistol.h" />
     <ClInclude Include="Rifle.h" />
     <ClInclude Include="Shotgun.h" />
     <ClInclude Include="Soldier.h" />
+    <ClInclude Include="WeaponFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Weapon">
       <UniqueIdentifier>{15373569-cef7-4513-83ac-32c83bdf1309}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{47bce35a-06dd-4f93-8a65-a3e1f6f06e6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,6 +39,12 @@
     <ClCompile Include="Rifle.cpp">
       <Filter>Source Files\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="WeaponFactory.cpp">
+      <Filter>Source Files\Weapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Soldier.h">
@@ -51,6 +60,12 @@
       <Filter>Source Files\Weapon</Filter>
     </ClInclude>
     <ClInclude Include="Rifle.h">
+      <Filter>Source Files\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Source Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponFactory.h">
       <Filter>Source Files\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
